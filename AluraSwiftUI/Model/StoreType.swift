@@ -15,4 +15,5 @@ struct StoreType: Identifiable {
     let location: String
     let stars: Int
     let products: [ProductType]
+    let distance: Double
 }

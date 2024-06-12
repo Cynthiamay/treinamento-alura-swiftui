@@ -20,6 +20,13 @@
 		4DC1C3692C19B50A0059128E /* StoreType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC1C3682C19B50A0059128E /* StoreType.swift */; };
 		4DC1C36B2C19B5920059128E /* ProductType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC1C36A2C19B5920059128E /* ProductType.swift */; };
 		4DC1C36E2C19BE3B0059128E /* Double+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC1C36D2C19BE3B0059128E /* Double+.swift */; };
+		4DC1C3712C1A12120059128E /* ProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC1C3702C1A12120059128E /* ProductDetailView.swift */; };
+		4DC1C3742C1A3AB20059128E /* StoreDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC1C3732C1A3AB20059128E /* StoreDetailHeaderView.swift */; };
+		4DC1C3762C1A3BE80059128E /* StoreDetailProductsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC1C3752C1A3BE80059128E /* StoreDetailProductsView.swift */; };
+		4DC1C3782C1A3DC80059128E /* StoreDetailProductItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC1C3772C1A3DC80059128E /* StoreDetailProductItemView.swift */; };
+		4DC1C37A2C1A3EBD0059128E /* ProductDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC1C3792C1A3EBD0059128E /* ProductDetailHeaderView.swift */; };
+		4DC1C37C2C1A3F440059128E /* ProductDetailQuantityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC1C37B2C1A3F440059128E /* ProductDetailQuantityView.swift */; };
+		4DC1C3802C1A44F80059128E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC1C37F2C1A44F80059128E /* HomeView.swift */; };
 		4DF6171F2C18A9660049D796 /* AluraSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF6171E2C18A9660049D796 /* AluraSwiftUIApp.swift */; };
 		4DF617212C18A9660049D796 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF617202C18A9660049D796 /* ContentView.swift */; };
 		4DF617232C18A9680049D796 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DF617222C18A9680049D796 /* Assets.xcassets */; };
@@ -60,6 +67,14 @@
 		4DC1C3682C19B50A0059128E /* StoreType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreType.swift; sourceTree = "<group>"; };
 		4DC1C36A2C19B5920059128E /* ProductType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductType.swift; sourceTree = "<group>"; };
 		4DC1C36D2C19BE3B0059128E /* Double+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+.swift"; sourceTree = "<group>"; };
+		4DC1C3702C1A12120059128E /* ProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailView.swift; sourceTree = "<group>"; };
+		4DC1C3732C1A3AB20059128E /* StoreDetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDetailHeaderView.swift; sourceTree = "<group>"; };
+		4DC1C3752C1A3BE80059128E /* StoreDetailProductsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDetailProductsView.swift; sourceTree = "<group>"; };
+		4DC1C3772C1A3DC80059128E /* StoreDetailProductItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDetailProductItemView.swift; sourceTree = "<group>"; };
+		4DC1C3792C1A3EBD0059128E /* ProductDetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailHeaderView.swift; sourceTree = "<group>"; };
+		4DC1C37B2C1A3F440059128E /* ProductDetailQuantityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailQuantityView.swift; sourceTree = "<group>"; };
+		4DC1C37D2C1A42EC0059128E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		4DC1C37F2C1A44F80059128E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		4DF6171B2C18A9660049D796 /* AluraSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AluraSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DF6171E2C18A9660049D796 /* AluraSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AluraSwiftUIApp.swift; sourceTree = "<group>"; };
 		4DF617202C18A9660049D796 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -146,9 +161,9 @@
 		4DC1C3612C18F9FA0059128E /* StoresView */ = {
 			isa = PBXGroup;
 			children = (
+				4DC1C3722C1A3A940059128E /* StoreDetailView */,
 				4DC1C3622C18FA3E0059128E /* StoreItemView.swift */,
 				4DC1C3642C18FCDC0059128E /* StoresContainerView.swift */,
-				4DC1C3662C19036E0059128E /* StoreDetailView.swift */,
 			);
 			path = StoresView;
 			sourceTree = "<group>";
@@ -159,6 +174,35 @@
 				4DC1C36D2C19BE3B0059128E /* Double+.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		4DC1C36F2C1A11DD0059128E /* ProductView */ = {
+			isa = PBXGroup;
+			children = (
+				4DC1C3702C1A12120059128E /* ProductDetailView.swift */,
+				4DC1C3792C1A3EBD0059128E /* ProductDetailHeaderView.swift */,
+				4DC1C37B2C1A3F440059128E /* ProductDetailQuantityView.swift */,
+			);
+			path = ProductView;
+			sourceTree = "<group>";
+		};
+		4DC1C3722C1A3A940059128E /* StoreDetailView */ = {
+			isa = PBXGroup;
+			children = (
+				4DC1C3662C19036E0059128E /* StoreDetailView.swift */,
+				4DC1C3732C1A3AB20059128E /* StoreDetailHeaderView.swift */,
+				4DC1C3752C1A3BE80059128E /* StoreDetailProductsView.swift */,
+				4DC1C3772C1A3DC80059128E /* StoreDetailProductItemView.swift */,
+			);
+			path = StoreDetailView;
+			sourceTree = "<group>";
+		};
+		4DC1C37E2C1A44E00059128E /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				4DC1C37F2C1A44F80059128E /* HomeView.swift */,
+			);
+			path = HomeView;
 			sourceTree = "<group>";
 		};
 		4DF617122C18A9660049D796 = {
@@ -184,6 +228,9 @@
 		4DF6171D2C18A9660049D796 /* AluraSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				4DC1C37E2C1A44E00059128E /* HomeView */,
+				4DC1C37D2C1A42EC0059128E /* Info.plist */,
+				4DC1C36F2C1A11DD0059128E /* ProductView */,
 				4DC1C36C2C19BE200059128E /* Extension */,
 				4DC1C3612C18F9FA0059128E /* StoresView */,
 				4DC1C35C2C18F4C40059128E /* CarouselView */,
@@ -352,10 +399,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DC1C37A2C1A3EBD0059128E /* ProductDetailHeaderView.swift in Sources */,
 				4DC1C3572C18CCF00059128E /* OrderType.swift in Sources */,
+				4DC1C3712C1A12120059128E /* ProductDetailView.swift in Sources */,
 				4DC1C36B2C19B5920059128E /* ProductType.swift in Sources */,
 				4DC1C35E2C18F4F10059128E /* CarouselItemView.swift in Sources */,
+				4DC1C3802C1A44F80059128E /* HomeView.swift in Sources */,
 				4DF617212C18A9660049D796 /* ContentView.swift in Sources */,
+				4DC1C37C2C1A3F440059128E /* ProductDetailQuantityView.swift in Sources */,
 				4DC1C36E2C19BE3B0059128E /* Double+.swift in Sources */,
 				4DC1C3592C18CD640059128E /* DataSourceMock.swift in Sources */,
 				4DC1C3652C18FCDC0059128E /* StoresContainerView.swift in Sources */,
@@ -366,7 +417,10 @@
 				4DF6171F2C18A9660049D796 /* AluraSwiftUIApp.swift in Sources */,
 				4DC1C3512C18C0540059128E /* NavigationBar.swift in Sources */,
 				4DC1C3692C19B50A0059128E /* StoreType.swift in Sources */,
+				4DC1C3762C1A3BE80059128E /* StoreDetailProductsView.swift in Sources */,
 				4DC1C3602C18F7100059128E /* CarouselTabView.swift in Sources */,
+				4DC1C3782C1A3DC80059128E /* StoreDetailProductItemView.swift in Sources */,
+				4DC1C3742C1A3AB20059128E /* StoreDetailHeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -533,6 +587,7 @@
 				DEVELOPMENT_TEAM = TK75PYXMLS;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AluraSwiftUI/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -562,6 +617,7 @@
 				DEVELOPMENT_TEAM = TK75PYXMLS;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AluraSwiftUI/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
