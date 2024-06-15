@@ -11,6 +11,8 @@ struct HomeView: View {
     
     @State private var isAnimating = false
     @State private var imageOffset: CGSize = .zero
+    @State private var buttonOffset: CGFloat = .zero
+    let buttonHeight: CGFloat = 80
     
     var body: some View {
         GeometryReader { geometry in
@@ -38,7 +40,7 @@ struct HomeView: View {
                     Text("Chef Delivery")
                         .font(.system(size: 40))
                         .fontWeight(.heavy)
-                        .foregroundColor(Color("ColorRed"))
+                        .foregroundColor(.colorRed)
                         .opacity(isAnimating ? 1 : 0)
                         .offset(y: isAnimating ? 0 : -40)
                     
@@ -54,16 +56,88 @@ struct HomeView: View {
                         .resizable()
                         .scaledToFit()
                         .shadow(radius: 60)
-                        .padding(32)
+                        .padding(isAnimating ? 32 : 92)
+                        .opacity(isAnimating ? 1 : 0)
+                        .offset(x: imageOffset.width,
+                                y: imageOffset.height)
                         .gesture(
                             DragGesture()
                                 .onChanged({ gesture in
-                                    print(gesture.translation)
+                                    withAnimation(.easeInOut(duration: 0.5)) {
+                                        imageOffset = gesture.translation
+                                    }
                                 })
                                 .onEnded({ _ in
-                                    print("A interação acabou")
+                                    withAnimation(.easeInOut(duration: 0.5)) {
+                                        imageOffset = .zero
+                                    }
                                 })
                         )
+                    
+                    ZStack {
+                        Capsule()
+                            .fill(.colorRed.opacity(0.2))
+                        
+                        Capsule()
+                            .fill(.colorRed.opacity(0.2))
+                            .padding(8)
+                        
+                        Text("Descubra mais")
+                            .bold()
+                            .font(.title2)
+                            .foregroundStyle(.colorRedDark)
+                            .offset(x: 20)
+                        
+                        HStack {
+                            Capsule()
+                                .fill(.colorRed)
+                                .frame(width: buttonOffset + buttonHeight)
+                            
+                            Spacer()
+                        }
+                        
+                        HStack {
+                            ZStack {
+                                Circle()
+                                    .fill(.colorRed)
+                                
+                                Circle()
+                                    .fill(.colorRedDark)
+                                    .padding(8)
+                                
+                                Image(systemName: "chevron.right.2")
+                                    .font(.system(size: 24))
+                                    .bold()
+                                    .foregroundColor(.white)
+                                
+                            }
+                            Spacer()
+                        }
+                        .offset(x: buttonOffset)
+                        .gesture(
+                            DragGesture()
+                                .onChanged({ gesture in
+                                    if gesture.translation.width >= 0 && buttonOffset <= (geometry.size.width - 60) - buttonHeight {
+                                        withAnimation(.easeInOut(duration: 0.25)) {
+                                            buttonOffset = gesture.translation.width
+                                        }
+                                    }
+                                })
+                                .onEnded({ _ in
+                                    if buttonOffset > (geometry.size.width - 60) / 2 {
+                                        // navegar para proxima tela
+                                    } else {
+                                        withAnimation(.easeInOut(duration: 0.25)) {
+                                            buttonOffset = .zero
+                                        }
+                                    }
+                                })
+                        )
+
+                    }
+                    .frame(width: geometry.size.width - 60, height: buttonHeight)
+                    
+                    
                 }
                 .onAppear() {
                     withAnimation(.easeInOut(duration: 3)) {
