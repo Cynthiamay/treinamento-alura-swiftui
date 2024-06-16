@@ -12,6 +12,7 @@ struct HomeView: View {
     @State private var isAnimating = false
     @State private var imageOffset: CGSize = .zero
     @State private var buttonOffset: CGFloat = .zero
+    @State private var showSecondScreen = false
     let buttonHeight: CGFloat = 80
     
     var body: some View {
@@ -38,7 +39,7 @@ struct HomeView: View {
                 VStack {
                     
                     Text("Chef Delivery")
-                        .font(.system(size: 40))
+                        .font(.system(size: 48))
                         .fontWeight(.heavy)
                         .foregroundColor(.colorRed)
                         .opacity(isAnimating ? 1 : 0)
@@ -125,7 +126,7 @@ struct HomeView: View {
                                 })
                                 .onEnded({ _ in
                                     if buttonOffset > (geometry.size.width - 60) / 2 {
-                                        // navegar para proxima tela
+                                        showSecondScreen = true
                                     } else {
                                         withAnimation(.easeInOut(duration: 0.25)) {
                                             buttonOffset = .zero
@@ -136,14 +137,19 @@ struct HomeView: View {
 
                     }
                     .frame(width: geometry.size.width - 60, height: buttonHeight)
-                    
-                    
+                    .opacity(isAnimating ? 1 : 0)
+                    .offset(y: isAnimating ? 0 : 100)
+
                 }
                 .onAppear() {
-                    withAnimation(.easeInOut(duration: 3)) {
+                    withAnimation(.easeInOut(duration: 1.5)) {
                         isAnimating = true
                     }
                 }
+                
+                .fullScreenCover(isPresented: $showSecondScreen, content: {
+                    ContentView()
+                })
             }
         }
     }
