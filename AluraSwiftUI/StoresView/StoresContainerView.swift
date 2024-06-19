@@ -12,10 +12,12 @@ struct StoresContainerView: View {
     @State private var ratingFilter = 0
     @State private var minDistanceFilter: Double = 0
     @State private var maxDistanceFilter: Double = 100
+    
+    var stores: [StoreType]
 
     //definindo uma variavel computada
     var filteredStores: [StoreType] {
-        return storesMock.filter { store in
+        return stores.filter { store in
             store.stars >= ratingFilter && (store.distance >= minDistanceFilter && store.distance < maxDistanceFilter)
         }
     }
@@ -99,5 +101,5 @@ struct StoresContainerView: View {
 }
 
 #Preview {
-    StoresContainerView()
+    StoresContainerView(stores: storesMock)
 }

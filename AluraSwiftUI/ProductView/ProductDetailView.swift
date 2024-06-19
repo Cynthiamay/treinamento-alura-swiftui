@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct ProductDetailView: View {
+    var service = HomeService()
     let product: ProductType
     @State private var productQuantity = 1
+    @State private var isLoading = true
 
     var body: some View {
         VStack {
@@ -22,8 +24,30 @@ struct ProductDetailView: View {
             
             Spacer()
             
-            ProductDetailButtonView()
+            ProductDetailButtonView {
+                Task {
+                    await confirmOrder()
+                }
+            }
         }
+    }
+    
+    func confirmOrder() async {
+        do{
+            let result = try await service.confirmOrder(product: product)
+            switch result {
+            case.success(let message):
+                print(message)
+                isLoading = false
+            case.failure(let error):
+                print(error.localizedDescription)
+                isLoading = false
+            }
+        } catch {
+            print(error.localizedDescription)
+            isLoading = false
+        }
+
     }
 }
 
@@ -32,14 +56,16 @@ struct ProductDetailView: View {
 }
 
 struct ProductDetailButtonView: View {
+    var onButtonPress: () -> Void
+    
     var body: some View {
         Button(action: {
-            print("testando")
+            onButtonPress()
         }, label: {
             HStack {
                 Image(systemName: "cart")
                 
-                Text("Adicionar ao carrinho")
+                Text("Enviar pedido")
             }
             .padding(.horizontal, 32)
             .padding(.vertical, 16)

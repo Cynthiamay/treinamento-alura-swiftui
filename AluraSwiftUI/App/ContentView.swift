@@ -8,41 +8,52 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    private var service = HomeService()
+    @State private var storesType: [StoreType] = []
+    @State private var isLoading = true
+
     var body: some View {
         NavigationView {
             VStack {
-                NavigationBar()
-                    .padding(.horizontal, 15)
-                ScrollView(/*@START_MENU_TOKEN@*/.vertical/*@END_MENU_TOKEN@*/, showsIndicators: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/, content: {
-                    VStack(spacing: 20) {
-                        OrderTypeGridView()
-                        CarouselTabView()
-                        StoresContainerView()
-                    }
-                })
+                if isLoading {
+                    ProgressView()
+                } else {
+                    NavigationBar()
+                        .padding(.horizontal, 15)
+                    ScrollView(/*@START_MENU_TOKEN@*/.vertical/*@END_MENU_TOKEN@*/, showsIndicators: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/, content: {
+                        VStack(spacing: 20) {
+                            OrderTypeGridView()
+                            CarouselTabView()
+                            StoresContainerView(stores: self.storesType)
+                        }
+                    })
+                }
             }
         }
         
         .onAppear {
-            fetchData()
+            Task {
+                await getStores()
+            }
         }
     }
     
-    func fetchData() {
-        guard let url = URL(string: "https://private-c25a8b-cynthiamay.apiary-mock.com/home") else { return }
-        URLSession.shared.dataTask(with: url) { data, _, error in
-            
-            if let error = error {
+    func getStores() async {
+        do{
+            let result = try await service.fetchData()
+            switch result {
+            case.success(let stores):
+                self.storesType = stores
+                isLoading = false
+            case.failure(let error):
                 print(error.localizedDescription)
-            } else if let data = data {
-                do {
-                    let json = try JSONSerialization.jsonObject(with: data) as? [[String:Any]]
-                    print(json)
-                } catch {
-                    print(error.localizedDescription)
-                }
+                isLoading = false
             }
-        }.resume()
+        } catch {
+            print(error.localizedDescription)
+            isLoading = false
+        }
     }
 }
 
